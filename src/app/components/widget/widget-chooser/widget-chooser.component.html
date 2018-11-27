@@ -1,0 +1,65 @@
+<!-- Navbar -->
+<nav class="navbar-light fixed-top bg-dark">
+  <a
+    class="color-white"
+    routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget"
+  >
+    <i class="fas fa-chevron-left"></i>
+  </a>
+  <a class="navbar-brand padding-left" href="#">
+    <b class="color-white">Choose Widget</b>
+  </a>
+</nav>
+<!-- List -->
+<div class="container">
+  <ul class="list-group-flush">
+    <li class="list-group-item">
+      <span (click)="create('HEADING')" class="pointer">Heading</span>
+    </li>
+    <li class="list-group-item">
+      <a routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/new"
+        >Label</a
+      >
+    </li>
+    <li class="list-group-item">
+      <a routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/new"
+        >Text Input</a
+      >
+    </li>
+    <li class="list-group-item">
+      <a routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/new"
+        >Link</a
+      >
+    </li>
+    <li class="list-group-item">
+      <a routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/new"
+        >Button</a
+      >
+    </li>
+    <li class="list-group-item">
+      <span (click)="create('IMAGE')" class="pointer">Image</span>
+    </li>
+    <li class="list-group-item">
+      <span (click)="create('YOUTUBE')" class="pointer">Youtube</span>
+    </li>
+    <li class="list-group-item">
+      <a routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/new"
+        >Data Table</a
+      >
+    </li>
+    <li class="list-group-item">
+      <a routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/new"
+        >Repeater</a
+      >
+    </li>
+  </ul>
+</div>
+<!-- Footer -->
+<footer class="navbar navbar-light fixed-bottom bg-dark">
+  <!-- Navbar content -->
+  <div class="full-width">
+    <a class="color-white float-right" routerLink="/user/{{uid}}"
+      ><i class="fas fa-user"></i
+    ></a>
+  </div>
+</footer>

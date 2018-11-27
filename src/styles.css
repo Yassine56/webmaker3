@@ -1,0 +1,86 @@
+body {
+  padding-top: 70px;
+  padding-bottom: 70px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+}
+.padding-left {
+  padding-left: 30px;
+}
+a:hover {
+  text-decoration: none;
+}
+.a-color:hover {
+  color: white;
+}
+.color-white {
+  color: white;
+}
+.color-black {
+  color: black;
+}
+.full-width {
+  width: 100%;
+}
+.sw-90-width {
+  width: 90%;
+}
+
+.display-inline {
+  display: inline;
+}
+
+.nav-heigth {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.topright {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 18px;
+}
+
+.form-style {
+  max-width: 420px;
+  padding: 30px 38px 66px;
+  margin: 0 auto;
+  background-color: #eee;
+  border: 3px dotted rgba(0, 0, 0, 0.1);
+}
+
+.form-style-heading {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.absolute-right {
+  position: absolute;
+  right: 15px;
+  /*Put icon in the front*/
+  z-index: 2;
+  background: white;
+}
+img {
+  width: 100%;
+  max-height: 250px;
+}
+.div-backgound {
+  background-color: #eee;
+  border: 3px dotted rgba(0, 0, 0, 0.1);
+  padding: 50px;
+  height: 100%;
+}
+
+span {
+  cursor: pointer;
+  color: #007bff;
+}
+span:hover {
+  text-decoration: none;
+  text-shadow: 1px 1px 1px #555;
+}
+.frame-youtube {
+  width: 100%;
+  height: 271px;
+}

@@ -1,0 +1,114 @@
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand" routerLink="/user/{{uid}}"><b>Profile</b></a>
+  <!--
+    <a class="color-white" routerLink="user/:uid">
+      <i class="fas fa-check"></i>
+    </a>
+  -->
+  <button
+    type="submit"
+    class="btn bg-transparent color-white"
+    form="myProfilFom"
+    [disabled]="myProfilFom.invalid"
+  >
+    <i class="fas fa-check"></i>
+  </button>
+</nav>
+<!-- Form profile -->
+<div class="container">
+  <form
+    class="form-style"
+    (ngSubmit)="update()"
+    id="myProfilFom"
+    #myProfilFom="ngForm"
+  >
+    <div *ngIf="userError" class="alert alert-danger">
+      This username is taken, please try another one.
+    </div>
+    <div *ngIf="successFlag" class="alert alert-success">
+      Update Successfully
+    </div>
+    <fieldset>
+      <legend class="text-center">Profile</legend>
+      <!-- Username -->
+      <div class="form-group">
+        <label for="userName"><b>Username</b></label>
+        <input
+          type="text"
+          #userInput="ngModel"
+          required
+          id="username"
+          name="username"
+          class="form-control"
+          placeholder="jannuzi"
+          [(ngModel)]="user.username"
+        />
+      </div>
+      <div
+        *ngIf="userInput.invalid && userInput.touched"
+        class="alert alert-danger"
+      >
+        Username can't be empty
+      </div>
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email"><b>Email</b></label>
+        <input
+          type="email"
+          name="email"
+          #emailInput="ngModel"
+          class="form-control"
+          placeholder="jannizi@gmail.com"
+          [(ngModel)]="user.email"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+        />
+      </div>
+      <div
+        *ngIf="emailInput.invalid && emailInput.touched"
+        class="alert alert-danger"
+      >
+        Invalid Email
+      </div>
+      <!-- First name -->
+      <div class="form-group">
+        <label for="firstName"><b>First name</b></label>
+        <input
+          type="text"
+          id="firstName"
+          name="firstName"
+          class="form-control"
+          placeholder="Jose"
+          [(ngModel)]="user.firstName"
+        />
+      </div>
+      <!-- Last name -->
+      <div class="form-group">
+        <label for="lastName"><b>Last name</b></label>
+        <input
+          type="text"
+          id="lastName"
+          name="lastName"
+          class="form-control"
+          placeholder="Annuziato"
+          [(ngModel)]="user.lastName"
+        />
+      </div>
+      <div>
+        <a routerLink="/user/{{uid}}/website" class="btn btn-primary btn-block "
+          >Websites</a
+        >
+        <a routerLink="/login" class="btn btn-danger btn-block">Logout</a>
+      </div>
+    </fieldset>
+  </form>
+</div>
+<!-- Footer -->
+<footer class="navbar navbar-dark bg-dark fixed-bottom">
+  <!-- Navbar content -->
+  <div class="full-width">
+    <a class="color-white float-right" routerLink="/user/{{uid}}">
+      <i class="fas fa-user"></i>
+    </a>
+  </div>
+</footer>

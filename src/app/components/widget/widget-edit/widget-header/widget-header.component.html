@@ -1,0 +1,95 @@
+<!-- Navbar -->
+<nav class="navbar navbar-light fixed-top bg-dark">
+  <a
+    class="color-white"
+    routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget"
+  >
+    <i class="fas fa-chevron-left"></i>
+  </a>
+  <div class="sw-90-width">
+    <a
+      class="navbar-brand"
+      routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget"
+    >
+      <b class="color-white"> Widget Edit</b>
+    </a>
+  </div>
+
+  <button
+    type="submit"
+    class="color-white btn bg-transparent"
+    form="myForm"
+    [disabled]="myForm.invalid"
+  >
+    <i class="fas fa-check"></i>
+  </button>
+</nav>
+<br /><br />
+<!-- List -->
+<div class="container-fluid">
+  <form class="form-style" id="myForm" (ngSubmit)="update()" #myForm="ngForm">
+    <!--
+      Name
+      <div class="form-group">
+        <label for="name"><b>Name</b></label>
+        <input
+          type="text"
+          name="name"
+          class="form-control"
+          [(ngModel)]="widget.name"
+        />
+      </div>
+    -->
+    <!-- Text -->
+    <div class="form-group">
+      <label for="textHeading"><b>Text</b></label>
+      <input
+        type="text"
+        name="text"
+        class="form-control"
+        [(ngModel)]="widget.text"
+        required
+        #textInput="ngModel"
+      />
+    </div>
+    <div
+      *ngIf="textInput.invalid && textInput.touched"
+      class="alert alert-danger"
+    >
+      Text is required
+    </div>
+    <!-- Size -->
+    <div class="form-group">
+      <label for="sizeHeading"><b>Size</b></label>
+      <input
+        type="number"
+        name="size"
+        class="form-control"
+        [(ngModel)]="widget.size"
+        required
+        #sizeInput="ngModel"
+      />
+    </div>
+    <div
+      *ngIf="sizeInput.invalid && sizeInput.touched"
+      class="alert alert-danger"
+    >
+      Size is required
+    </div>
+
+    <div>
+      <button type="button" class="btn btn-danger btn-block" (click)="delete()">
+        Delete
+      </button>
+    </div>
+  </form>
+</div>
+<!-- Footer -->
+<footer class="navbar navbar-light fixed-bottom bg-dark">
+  <!-- Navbar content -->
+  <div class="full-width">
+    <a class="color-white float-right" routerLink="/user/{{uid}}"
+      ><i class="fas fa-user"></i
+    ></a>
+  </div>
+</footer>

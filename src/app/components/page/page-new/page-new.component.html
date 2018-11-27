@@ -1,0 +1,83 @@
+<!-- Navbar -->
+<nav class="navbar navbar-light fixed-top bg-dark">
+  <a class="color-white" routerLink="/user/{{uid}}/website/{{wid}}/page">
+    <i class="fas fa-chevron-left"></i>
+  </a>
+  <div class="sw-90-width">
+    <a
+      class="navbar-brand float-left"
+      routerLink="/user/{{uid}}/website/{{wid}}/page"
+    >
+      <b class="color-white">New page</b>
+    </a>
+  </div>
+  <a class="color-white" routerLink="/user/{{uid}}/website/{{wid}}/page">
+    <i class="fas fa-check"></i>
+  </a>
+</nav>
+<!-- Pages List -->
+<br /><br />
+<div class="container-fluid">
+  <form
+    class="form-style"
+    id="myAddForm"
+    (ngSubmit)="add()"
+    #myAddForm="ngForm"
+  >
+    <div *ngIf="error_form" class="alert alert-danger">
+      Name and Title are required!!
+    </div>
+    <!-- Name -->
+    <div class="form-group">
+      <label for="name"><b>Name</b></label>
+      <input
+        type="text"
+        name="name"
+        class="form-control"
+        placeholder="Name"
+        [(ngModel)]="page.name"
+        required
+      />
+    </div>
+    <!-- Title -->
+    <div class="form-group">
+      <label for="title"><b>Title</b></label>
+      <input
+        type="text"
+        name="title"
+        class="form-control"
+        placeholder="Page title"
+        [(ngModel)]="page.title"
+        required
+      />
+    </div>
+
+    <div>
+      <button
+        type="submit"
+        class="btn btn-primary btn-block"
+        form="myAddForm"
+        [disabled]="myAddForm.invalid"
+      >
+        Submit
+      </button>
+      <!--
+        <a routerLink="/user/{{uid}}/website/{{wid}}/page" class="btn btn-primary btn-block">Submit</a>
+      -->
+      <a
+        routerLink="/user/{{uid}}/website/{{wid}}/page"
+        class="btn btn-danger btn-block "
+        >Cancel</a
+      >
+    </div>
+  </form>
+</div>
+<!-- Footer -->
+<footer class="navbar navbar-light fixed-bottom bg-dark">
+  <!-- Navbar content -->
+  <div class="full-width">
+    <a class="color-white float-right" routerLink="/user/{{uid}}"
+      ><i class="fas fa-user"></i
+    ></a>
+  </div>
+</footer>

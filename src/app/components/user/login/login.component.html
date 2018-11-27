@@ -1,0 +1,58 @@
+<div class="container">
+  <form class="form-style" (ngSubmit)="login()" #myLoginForm="ngForm">
+    <h3 class="form-style-heading">Login</h3>
+    <hr />
+    <br />
+    <div *ngIf="error_flag" class="alert alert-danger">Invalid User!!</div>
+    <div class="form-group">
+      <input
+        type="text"
+        #userInput="ngModel"
+        required
+        id="username"
+        name="username"
+        class="form-control"
+        placeholder="username"
+        [(ngModel)]="username"
+      />
+    </div>
+    <div class="form-group">
+      <input
+        type="password"
+        #pwdInput="ngModel"
+        required
+        id="password"
+        name="password"
+        class="form-control"
+        placeholder="password"
+        [(ngModel)]="password"
+      />
+    </div>
+
+    <div
+      *ngIf="userInput.invalid && userInput.submited"
+      class="alert alert-danger"
+    >
+      Username is required!!
+    </div>
+    <div
+      *ngIf="pwdInput.invalid && pwdInput.touched"
+      class="alert alert-danger"
+    >
+      Password is required!!
+    </div>
+    <div>
+      <button
+        class="btn btn-primary btn-block"
+        type="submit"
+        [disabled]="myLoginForm.invalid"
+      >
+        Login
+      </button>
+      <!--
+        <a routerLink="/user/:uid" class="btn btn-primary btn-block">Login</a>
+      -->
+      <a routerLink="/register" class="btn btn-success btn-block">Register</a>
+    </div>
+  </form>
+</div>

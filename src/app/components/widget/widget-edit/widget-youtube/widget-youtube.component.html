@@ -1,0 +1,96 @@
+<!-- Navbar -->
+<nav class="navbar navbar-light fixed-top bg-dark">
+  <a
+    class="color-white"
+    routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget"
+  >
+    <i class="fas fa-chevron-left"></i>
+  </a>
+  <div class="sw-90-width">
+    <a
+      class="navbar-brand"
+      routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget"
+    >
+      <b class="color-white"> Widget Edit</b>
+    </a>
+  </div>
+
+  <button
+    type="submit"
+    class="color-white btn bg-transparent"
+    form="myForm"
+    [disabled]="myForm.invalid"
+  >
+    <i class="fas fa-check"></i>
+  </button>
+</nav>
+<br /><br />
+<!-- List -->
+<div class="container">
+  <form class="form-style" id="myForm" (ngSubmit)="update()" #myForm="ngForm">
+    <!--
+      Name
+      <div class="form-group">
+        <label for="name"><b>Name</b></label>
+        <input
+          name="name"
+          placeholder="Youtube Name"
+          [(ngModel)]="widget.name"
+          type="text"
+          id="name"
+          class="form-control"
+        />
+      </div>
+    -->
+    <!-- Url -->
+    <div class="form-group">
+      <label for="urlHeading"><b>Url</b></label>
+      <input
+        type="text"
+        name="url"
+        [(ngModel)]="widget.url"
+        class="form-control"
+        #urlInput="ngModel"
+        required
+      />
+    </div>
+    <div
+      *ngIf="urlInput.invalid && urlInput.touched"
+      class="alert alert-danger"
+    >
+      Url is required
+    </div>
+    <!-- Width -->
+    <div class="form-group">
+      <label for="width"><b>Width</b></label>
+      <input
+        type="text"
+        name="width"
+        class="form-control"
+        [(ngModel)]="widget.width"
+        required
+        #widthInput="ngModel"
+      />
+    </div>
+    <div
+      *ngIf="widthInput.invalid && widthInput.touched"
+      class="alert alert-danger"
+    >
+      Width is required
+    </div>
+    <div>
+      <button type="button" class="btn btn-danger btn-block" (click)="delete()">
+        Delete
+      </button>
+    </div>
+  </form>
+</div>
+<!-- Footer -->
+<footer class="navbar navbar-light fixed-bottom bg-dark">
+  <!-- Navbar content -->
+  <div class="full-width">
+    <a class="color-white float-right" routerLink="/user/{{uid}}"
+      ><i class="fas fa-user"></i
+    ></a>
+  </div>
+</footer>

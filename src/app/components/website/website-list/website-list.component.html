@@ -1,0 +1,41 @@
+<!-- Navbar -->
+<nav class="navbar fixed-top navbar-dark bg-dark">
+  <a class="color-white" routerLink="/user/{{uid}}">
+    <i class="fas fa-chevron-left"></i>
+  </a>
+  <div class="sw-90-width">
+    <a class="navbar-brand float-left" routerLink="/user/{{uid}}/website">
+      <b>Websites</b>
+    </a>
+  </div>
+  <a class="color-white" routerLink="/user/{{uid}}/website/new">
+    <i class="fas fa-plus"></i>
+  </a>
+</nav>
+<br /><br />
+<!-- Website List -->
+<div class="container div-backgound">
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let website of websites">
+      <a routerLink="/user/{{uid}}/website/{{website.id}}/page">
+        {{ website.name }}
+      </a>
+      <a
+        routerLink="/user/{{uid}}/website/{{website.id}}"
+        class="float-right"
+        title="Edit"
+      >
+        <i class="fas fa-cog"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+<!-- Footer -->
+<footer class="navbar navbar-dark bg-dark fixed-bottom">
+  <!-- Navbar content -->
+  <div class="full-width">
+    <a class="color-white float-right" routerLink="/user/{{uid}}">
+      <i class="fas fa-user"></i>
+    </a>
+  </div>
+</footer>
